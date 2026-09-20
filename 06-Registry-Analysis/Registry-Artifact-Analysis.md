@@ -6,12 +6,16 @@ Examine Windows Registry artifacts to identify references to recently accessed f
 
 ## Evidence Source and Tool
 
-* **Registry hive:** User `NTUSER.DAT`
+* **Windows user profile:** `mortysmith`
+* **Registry hive:** `/Users/mortysmith/NTUSER.DAT`
 * **Registry artifact:** `Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs`
 * **Analysis tool:** RegRipper, `recentdocs` plugin v.20200427
-* **Saved analysis output:** `week3_recent_documents.txt`
+* **Saved analysis output:** `mortysmith_recentdocs.txt`
 
-The saved RegRipper output was reviewed as part of the Windows 10 forensic investigation.
+The registry hive was examined from the read-only mounted forensic image at `/mnt/lab8_ntfs/Users/mortysmith/NTUSER.DAT`.
+
+A separate examination of `/Users/ricksanchez/NTUSER.DAT` did not return a matching reference to `My Social Security Number.txt` in its RecentDocs plugin output.
+
 
 ## RecentDocs Findings
 
@@ -68,3 +72,4 @@ The recovered text document contains potentially sensitive personal information.
 ## Conclusion
 
 Analysis of the `RecentDocs` registry artifact identified recent-item references that could be correlated with NTFS metadata and file recovery results. Combining registry and file-system evidence provided a more complete account of activity represented in the acquired Windows image than either artifact source alone.
+The relevant RecentDocs references were attributed to the mortysmith Windows user profile by examining its NTUSER.DAT hive and comparing the resulting RegRipper output with the previously saved analysis.
