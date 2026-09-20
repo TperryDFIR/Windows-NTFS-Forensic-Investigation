@@ -45,3 +45,14 @@ unchanged between verification events.
 Maintaining evidence integrity is essential
 to ensuring forensic findings are reliable
 and reproducible.
+
+## Supporting Screenshot: Evidence Integrity Verification
+
+The following screenshot shows the saved original and post-analysis MD5, SHA-1, and SHA-256 hash records for the reconstructed EWF image.
+
+The records were compared using `diff -u`. The command returned exit status `0`, indicating no differences between the two saved records.
+
+![Evidence Integrity Verification](../Screenshots/01-Evidence-Hash-Verification.png)
+
+**Figure 1.** Reproduced comparison of the original and post-analysis logical image hash records. The SHA-1 transcription discrepancy in the original custody log was documented separately, and the original log was preserved.
+
