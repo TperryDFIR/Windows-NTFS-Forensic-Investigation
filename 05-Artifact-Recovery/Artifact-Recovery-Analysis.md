@@ -79,3 +79,54 @@ Together, these artifacts support the reconstruction of user activity and help i
 The recovered file's contents have been excluded from this public report to prevent disclosure of potentially sensitive personal information.
 
 Only the investigative methodology and relevant technical metadata are documented.
+
+## Independent NTFS Artifact Recovery and Verification
+
+### Artifact Identification
+
+Windows RecentDocs analysis identified a document named `My Social Security Number.txt`. Examination of the NTFS file listing correlated the filename with MFT record `91143`.
+
+Because the filename indicates potentially sensitive personal information, the recovered content was retained in the private forensic workspace and was not included in the public repository.
+
+### Partition Identification
+
+The Sleuth Kit `mmls` utility identified a GUID Partition Table (GPT). The main NTFS Basic Data partition began at sector `239616`, using 512-byte sectors.
+
+```bash
+sudo mmls /mnt/ewf/ewf1
+```
+
+### Independent Recovery
+
+The file was extracted from the reconstructed EWF image using The Sleuth Kit `icat` utility:
+
+```bash
+sudo icat -o 239616 \
+/mnt/ewf/ewf1 91143 \
+> /home/forensics/Cases/Week3/Analysis/recovered_file_verification.txt
+```
+
+The newly recovered artifact was identified as ASCII text with CRLF line endings.
+
+### Verification
+
+SHA-256 hashes were calculated for the previously extracted file and the independently recovered verification copy:
+
+```bash
+sha256sum \
+/home/forensics/Cases/Week3/Documentation/extracted_ssn_file.txt \
+/home/forensics/Cases/Week3/Analysis/recovered_file_verification.txt
+```
+
+Both files produced matching SHA-256 values. A byte-for-byte comparison using `cmp` produced no reported differences:
+
+```bash
+cmp \
+/home/forensics/Cases/Week3/Documentation/extracted_ssn_file.txt \
+/home/forensics/Cases/Week3/Analysis/recovered_file_verification.txt
+```
+
+**Finding:** The independent recovery reproduced the previously extracted file. The matching hashes and byte-for-byte comparison support the integrity and repeatability of the artifact recovery procedure.
+
+**Privacy note:** The recovered file's contents and copies of the file were excluded from this public case study.
+
