@@ -88,6 +88,21 @@ Windows RecentDocs analysis identified a document named `My Social Security Numb
 
 Because the filename indicates potentially sensitive personal information, the recovered content was retained in the private forensic workspace and was not included in the public repository.
 
+## Supporting Screenshot: MFT Artifact Identification
+
+The recursive NTFS file listing was searched for the document
+identified during the investigation.
+
+The resulting entry identified MFT record `91143` and the
+NTFS `$DATA` attribute reference `128-1`.
+
+![MFT Artifact Identification](../Screenshots/04-MFT-Artifact-Identification.png)
+
+**Figure 4.** Reproduced NTFS file-listing examination showing
+the target document associated with MFT record `91143`.
+
+
+
 ### Partition Identification
 
 The Sleuth Kit `mmls` utility identified a GUID Partition Table (GPT). The main NTFS Basic Data partition began at sector `239616`, using 512-byte sectors.
@@ -129,17 +144,4 @@ cmp \
 **Finding:** The independent recovery reproduced the previously extracted file. The matching hashes and byte-for-byte comparison support the integrity and repeatability of the artifact recovery procedure.
 
 **Privacy note:** The recovered file's contents and copies of the file were excluded from this public case study.
-
-## Supporting Screenshot: MFT Artifact Identification
-
-The recursive NTFS file listing was searched for the document
-identified during the investigation.
-
-The resulting entry identified MFT record `91143` and the
-NTFS `$DATA` attribute reference `128-1`.
-
-![MFT Artifact Identification](../Screenshots/04-MFT-Artifact-Identification.png)
-
-**Figure 4.** Reproduced NTFS file-listing examination showing
-the target document associated with MFT record `91143`.
 
