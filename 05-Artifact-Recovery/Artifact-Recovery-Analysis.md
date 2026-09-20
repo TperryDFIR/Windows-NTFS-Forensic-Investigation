@@ -123,6 +123,22 @@ sudo icat -o 239616 \
 
 The newly recovered artifact was identified as ASCII text with CRLF line endings.
 
+## Supporting Screenshot: Independent File Recovery Verification
+
+The target file was independently extracted from MFT record `91143`
+using The Sleuth Kit `icat` utility and the NTFS partition offset
+of `239616` sectors.
+
+The independent extraction was compared against the previously
+recovered file using `cmp`. The command returned exit status `0`,
+confirming that the two files are byte-for-byte identical.
+
+![Independent File Recovery Verification](../Screenshots/06-Independent-File-Recovery-Verification.png)
+
+**Figure 6.** Independent verification of the recovered NTFS file.
+The comparison confirms identical file contents without publicly
+disclosing potentially sensitive personal information.
+
 ### Verification
 
 SHA-256 hashes were calculated for the previously extracted file and the independently recovered verification copy:
