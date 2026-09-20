@@ -61,3 +61,17 @@ partition begins at sector `239616`, using 512-byte sectors.
 
 **Figure 2.** Reproduced GPT partition examination showing the EFI
 System, Microsoft Reserved, Basic Data, and unlabeled partitions.
+
+## Supporting Screenshot: NTFS File-System Analysis
+
+The Sleuth Kit `fsstat` utility was used to examine the NTFS
+volume beginning at sector `239616`.
+
+The examination identified the volume serial number, MFT location,
+MFT mirror location, metadata record sizes, and file-system
+allocation characteristics.
+
+![NTFS File-System Analysis](../Screenshots/03-NTFS-File-System-Analysis.png)
+
+**Figure 3.** Reproduced NTFS file-system examination showing
+volume metadata, MFT locations, sector size, and cluster size.
