@@ -130,3 +130,16 @@ cmp \
 
 **Privacy note:** The recovered file's contents and copies of the file were excluded from this public case study.
 
+## Supporting Screenshot: MFT Artifact Identification
+
+The recursive NTFS file listing was searched for the document
+identified during the investigation.
+
+The resulting entry identified MFT record `91143` and the
+NTFS `$DATA` attribute reference `128-1`.
+
+![MFT Artifact Identification](../Screenshots/04-MFT-Artifact-Identification.png)
+
+**Figure 4.** Reproduced NTFS file-listing examination showing
+the target document associated with MFT record `91143`.
+
