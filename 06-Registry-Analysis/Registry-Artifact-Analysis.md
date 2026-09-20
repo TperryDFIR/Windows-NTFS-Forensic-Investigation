@@ -47,6 +47,21 @@ The `.txt` subkey had a LastWrite timestamp of **2020-09-18 22:50:36 UTC**.
 
 The ordering places `My Social Security Number.txt` first among the text-document references recorded in this subkey. The LastWrite timestamp records modification of the registry key and should not be interpreted as the exact time the document was opened.
 
+## Supporting Screenshot: Windows Registry RecentDocs Analysis
+
+The following screenshot documents RegRipper analysis of the
+`mortysmith` Windows user profile's `NTUSER.DAT` hive.
+
+The `.txt` RecentDocs subkey contains a reference to
+`My Social Security Number.txt`, which was independently
+correlated with NTFS MFT record `91143`.
+
+![Windows Registry RecentDocs Analysis](../Screenshots/05-Registry-RecentDocs.png)
+
+**Figure 5.** Reproduced RegRipper examination of Morty Smith's
+RecentDocs registry artifact, showing the document reference,
+MRUListEx ordering, and registry key LastWrite timestamps.
+
 ### Other Recent Item References
 
 | Subkey   | LastWrite (UTC)     | Recorded item    |
