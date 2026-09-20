@@ -36,6 +36,14 @@ The investigation demonstrates evidence integrity verification, GPT partition an
 | [Windows Registry Analysis](06-Registry-Analysis/Registry-Artifact-Analysis.md)     | RecentDocs examination and user-profile attribution |
 | [Findings and Conclusions](07-Findings-and-Conclusions/Investigation-Summary.md)    | Consolidated investigative findings and limitations |
 
+## Investigation Reports
+
+1. [Evidence Acquisition and Integrity](02-Evidence-Acquisition/Evidence-Integrity.md)
+2. [GPT and NTFS Partition Analysis](03-Partition-Analysis/NTFS-Partition-Analysis.md)
+3. [Artifact Recovery](05-Artifact-Recovery/Artifact-Recovery-Analysis.md)
+4. [Windows Registry Analysis](06-Registry-Analysis/Registry-Artifact-Analysis.md)
+5. [Findings and Conclusions](07-Findings-and-Conclusions/Investigation-Summary.md)
+
 ## Key Findings
 
 The examination identified a GPT-partitioned Windows disk image containing an NTFS volume beginning at sector `239616`.
