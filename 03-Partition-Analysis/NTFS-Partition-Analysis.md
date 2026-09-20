@@ -50,3 +50,14 @@ The examination established the NTFS volume's structural characteristics and ide
 The analysis was conducted against the mounted forensic image. Original and post-analysis hash records were compared as part of the evidence integrity verification process.
 
 A separate evidence integrity report documents the verification results and a transcription discrepancy identified in the original custody log.
+
+## Supporting Screenshot: GPT Partition Analysis
+
+The following screenshot shows the partition structure identified
+using The Sleuth Kit `mmls` utility. The examined NTFS Basic Data
+partition begins at sector `239616`, using 512-byte sectors.
+
+![GPT Partition Analysis](../Screenshots/02-GPT-Partition-Analysis.png)
+
+**Figure 2.** Reproduced GPT partition examination showing the EFI
+System, Microsoft Reserved, Basic Data, and unlabeled partitions.
